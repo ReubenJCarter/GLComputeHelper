@@ -2,8 +2,8 @@
 #include <vector>
 #include <time.h>  
 
-#include "Context.h"
-#include "ComputeShader.h"
+#include "GLComputeHelper/Context.h"
+#include "GLComputeHelper/ComputeShader.h"
 
 
 using namespace GLComputeHelper;
