@@ -142,6 +142,16 @@ void ComputeShader::SetImage(std::string name, ShaderImage& shaderImage)
 	glGetUniformiv(computeProgram, glGetUniformLocation(computeProgram, name.c_str()), &imageUnit);
 	if(shaderImage.GetType() == ShaderImage::RGBA32F)
 		glBindImageTexture(imageUnit, shaderImage.GetTexture(), 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	else if(shaderImage.GetType() == ShaderImage::RGBA8)
+		glBindImageTexture(imageUnit, shaderImage.GetTexture(), 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA8);
+}
+
+void ComputeShader::SetImage(std::string name, ShaderImage& shaderImage, int imageUnit)
+{
+	if(shaderImage.GetType() == ShaderImage::RGBA32F)
+		glBindImageTexture(imageUnit, shaderImage.GetTexture(), 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);	
+	else if(shaderImage.GetType() == ShaderImage::RGBA8)
+		glBindImageTexture(imageUnit, shaderImage.GetTexture(), 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA8);
 }
 
 void ComputeShader::SetTexture(std::string name, Texture& texture, int textureUnit)
