@@ -60,6 +60,7 @@ class ComputeShader
 		void SetMat4(std::string name, float value[16]);
 		template<class T> void SetStorageBuffer(std::string name, StorageBuffer<T>& storageBuffer);
 		void SetImage(std::string name, ShaderImage& shaderImage);
+		void SetImage(std::string name, ShaderImage& shaderImage, int imageUnit);
 		void SetTexture(std::string name, Texture& texture, int textureUnit);
 		void SetBufferTexture(std::string name, BufferTexture& bufferTexture, int textureUnit);
 };

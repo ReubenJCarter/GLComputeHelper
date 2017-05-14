@@ -3,13 +3,13 @@
 #
 
 set(GLHelperSrc
-	Context.cpp
-	ComputeShader.cpp
-	Util.cpp
-	ShaderImage.cpp
-	QuadImage.cpp
-	Texture.cpp
-	BufferTexture.cpp
+	GLComputeHelper/Context.cpp
+	GLComputeHelper/ComputeShader.cpp
+	GLComputeHelper/Util.cpp
+	GLComputeHelper/ShaderImage.cpp
+	GLComputeHelper/QuadImage.cpp
+	GLComputeHelper/Texture.cpp
+	GLComputeHelper/BufferTexture.cpp
 )	
 
 add_library(GLComputeHelper STATIC ${GLHelperSrc})

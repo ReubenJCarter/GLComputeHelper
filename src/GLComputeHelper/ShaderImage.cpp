@@ -36,6 +36,8 @@ void ShaderImage::Allocate(int w, int h, TYPE t, void* data)
 	glBindTexture(GL_TEXTURE_2D, texture);
 	if(type == RGBA32F)
 		glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, width, height);
+	else if(type == RGBA8)
+		glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA8, width, height);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
  
@@ -55,12 +57,16 @@ void ShaderImage::Copy(void* data, int w, int h, int offX, int offY)
 	}
 	if(type == RGBA32F)
 		glTextureSubImage2D(texture, 0, offX, offY, wfinal, hfinal, GL_RGBA, GL_FLOAT, data);
+	else if(type == RGBA8)
+		glTextureSubImage2D(texture, 0, offX, offY, wfinal, hfinal, GL_RGBA, GL_UNSIGNED_BYTE, data);
 }
 
 void ShaderImage::Get(void* data)
 {
 	if(type == RGBA32F)
 		glGetTextureImage(texture, 0, GL_RGBA, GL_FLOAT, width * height * 16, data);
+	else if(type == RGBA8)
+		glGetTextureImage(texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, width * height * 4, data);
 }
 
 unsigned int ShaderImage::GetTexture()
